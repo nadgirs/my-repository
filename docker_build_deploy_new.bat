@@ -11,6 +11,6 @@ REM docker push santosh2507/my-image-repository/my-app:1.2
 REM docker build -t my-app .
 REM docker tag my-app santosh2507/my-image-repository:my-app
 REM docker login
-	santosh2507
-	mylove1!
+REM	santosh2507
+REM	mylove1!
 REM docker push  santosh2507/my-image-repository:my-app
