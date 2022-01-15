@@ -3,6 +3,7 @@ environment {
 registry = "santosh2507/my-image-repository"
 registryCredential = 'docker-hub-credentials'
 dockerImage = ''
+imageName = 'my-app'
 }
 agent any
 stages {
@@ -15,7 +16,7 @@ git 'https://github.com/nadgirs/my-repository.git'
 stage('Building our image') {
 steps{
 script {
-dockerImage = docker.build registry + ":$BUILD_NUMBER"
+dockerImage = docker.build registry + ":$imageName"
 }
 }
 }
