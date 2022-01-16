@@ -5,6 +5,7 @@ registry = "santosh2507/my-image-repository"
 registryCredential = 'docker-hub-credentials'
 dockerImage = ''
 imageName = 'my-app'
+JD_IMAGE = '1.0'
 }
 agent any
 stages {
