@@ -1,3 +1,4 @@
+
 pipeline {
 environment {
 registry = "santosh2507/my-image-repository"
