@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent {dockerfile true}
     stages{
         stage("build"){
             agent{
@@ -16,6 +16,10 @@ pipeline{
         stage("deploy"){
             steps{
                 echo "Deploying the application"
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                    sh 'docker push  santosh2507/my-image-repository:my-app:1.4'
+                }
             }
         }
         stage("test"){
