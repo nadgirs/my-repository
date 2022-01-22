@@ -4,7 +4,8 @@ pipeline{
         stage("build"){
             steps{
                 echo "Building the application"
-                docker build -t my-app:1.5
+                docker {
+                    node
             }
         }
         stage("deploy"){
