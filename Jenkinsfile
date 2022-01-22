@@ -19,7 +19,7 @@ pipeline {
         stage('Building our image') {
             steps{
                 script {
-                dockerImage = docker.build dockerRegistry + "${JD_IMAGE}"
+                    dockerImage = docker.build dockerRegistry
                 }
             }
         }
