@@ -6,6 +6,7 @@ pipeline{
                 echo "Building the application"
                 docker {
                     node
+                }
             }
         }
         stage("deploy"){
