@@ -1,7 +1,8 @@
 
 pipeline {
     environment {
-        registry = "santosh2507/my-image-repository"
+        gitRegistry = "https://github.com/nadgirs/my-repository.git"
+        dockerRegistry = "santosh2507/my-image-repository"
         registryCredential = 'docker-hub-credentials'
         dockerImage = ''
         imageName = 'my-app'
@@ -18,7 +19,7 @@ pipeline {
         stage('Building our image') {
             steps{
                 script {
-                dockerImage = docker.build registry + "imageName"
+                dockerImage = docker.build gitRegistry + "${imageName}"
                 }
             }
         }
