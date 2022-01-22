@@ -1,3 +1,4 @@
+def JD_TO_RUN = "1.0"
 pipeline{
     agent {dockerfile true}
     stages{
