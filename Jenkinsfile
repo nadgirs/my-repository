@@ -1,40 +1,18 @@
-
-pipeline {
-    environment {
-        gitRegistry = "https://github.com/nadgirs/my-repository.git"
-        dockerRegistry = "santosh2507/my-image-repository"
-        registryCredential = 'docker-hub-credentials'
-        dockerImage = ''
-        imageName = 'my-app'
-        JD_IMAGE = '1.0'
-    }
-    agent any
-    stages {
-        stage('Cloning our Git') {
-            steps {
-            git 'https://github.com/nadgirs/my-repository.git'
-
+pipeline{
+    stages{
+        stage("build"){
+            steps{
+                echo "Building the application"
             }
         }
-        stage('Building our image') {
+        stage("deploy"){
             steps{
-                script {
-                    dockerImage = docker.build gitRegistry
-                }
+                echo "Deploying the application"
             }
         }
-        stage('Deploy our image') {
+        stage("test"){
             steps{
-                script {
-                    docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
-                    }
-                }
-            }
-        }
-        stage('Cleaning up') {
-            steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"
+                echo "tetsing the application"
             }
         }
     }
