@@ -5,7 +5,7 @@ pipeline{
             steps{
                 echo "Building the application"
                 docker {
-                    node
+                    image 'node'
                 }
             }
         }
